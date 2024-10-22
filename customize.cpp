@@ -26,9 +26,9 @@ int main(int argc, char **argv) {
     //std::cout << "read input " << first_out.size() << " " << tail.size() << " " << head.size() << " " << node_order.size() << " " << weight.size() << std::endl;
 	RoutingKit::CustomizableContractionHierarchy cch(node_order, tail, head);
     //std::cout << "built CCH" << std::endl;
+	double time = -RoutingKit::get_micro_time();
 	RoutingKit::CustomizableContractionHierarchyMetric metric(cch, weight);
     //std::cout << "built metric" << std::endl;
-	double time = -RoutingKit::get_micro_time();
 	if (cores > 1) {
 		RoutingKit::CustomizableContractionHierarchyParallelization parallel_custom(cch);
 		parallel_custom.customize(metric, static_cast<unsigned int>(cores));
