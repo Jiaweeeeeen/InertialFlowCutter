@@ -6,8 +6,9 @@ import os
 
 experiments_folder = ""
 
-graphs = ["col", "cal", "europe", "usa"]
-partitioners = ["metis", "kahip_v0_71", "kahip_v1_00_cut", "kahip_v2_11", "inertial_flow", "flowcutter3", "flowcutter20", "flowcutter100","inertialflowcutter4", "inertialflowcutter8", "inertialflowcutter12", "inertialflowcutter16"]
+graphs = ["NY", "BAY", "COL", "FLA", "NW", "NE", "CAL", "LKA", "E", "W", "CTR", "USA", "EU"]
+# partitioners = ["metis", "kahip_v0_71", "kahip_v1_00_cut", "kahip_v2_11", "inertial_flow", "flowcutter3", "flowcutter20", "flowcutter100","inertialflowcutter4", "inertialflowcutter8", "inertialflowcutter12", "inertialflowcutter16"]
+partitioners = ["flowcutter20"]
 
 binary_path = "./../build/"
 console = binary_path + "console"
@@ -125,7 +126,8 @@ def main():
             print("running queries")
             row_dict["avg_query_time"] = run_queries(G,P)
             print(row_dict)
-            results = results.append(pd.DataFrame([row_dict]), ignore_index=True)
+            # results = results.append(pd.DataFrame([row_dict]), ignore_index=True)
+            results = pd.concat([results, pd.DataFrame([row_dict])], ignore_index=True)
 
     print("Order experiments done.")
     new_cols = list(results.columns)

@@ -32,6 +32,10 @@ Then, run `generate_make_file` to build a suitable Makefile.
 
 When running cmake, add the flags `-DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++`. This ensures that gcc is used, as CMake fails to properly autodetect gcc on macOS.
 
+## Building on my MaxOS
+```
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_LINKER=g++ -DOpenMP_C_FLAGS="-Xpreprocessor -fopenmp" -DOpenMP_C_LIB_NAMES="omp" -DOpenMP_CXX_FLAGS="-Xpreprocessor -fopenmp" -DOpenMP_CXX_LIB_NAMES="omp" -DOpenMP_omp_LIBRARY=/opt/homebrew/Cellar/libomp/19.1.2/lib/libomp.dylib ..
+```
 ## Computing a Contraction Order
 
 Currently, we expect the input graph in RoutingKit's format, i.e. a directory containing five files `first_out`, `head`, `travel_time`, `latitude`, `longitude` in RoutingKit's binary vector format.
