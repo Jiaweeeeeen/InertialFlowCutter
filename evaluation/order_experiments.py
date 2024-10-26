@@ -8,7 +8,7 @@ experiments_folder = ""
 
 graphs = ["NY", "BAY", "COL", "FLA", "NW", "NE", "CAL", "LKA", "E", "W", "CTR", "USA", "EU"]
 # partitioners = ["metis", "kahip_v0_71", "kahip_v1_00_cut", "kahip_v2_11", "inertial_flow", "flowcutter3", "flowcutter20", "flowcutter100","inertialflowcutter4", "inertialflowcutter8", "inertialflowcutter12", "inertialflowcutter16"]
-partitioners = ["flowcutter20"]
+partitioners = ["hc2l0.3"]
 
 binary_path = "./../build/"
 console = binary_path + "console"
